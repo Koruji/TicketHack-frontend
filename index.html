@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tickethack - Accueil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <h1>Tickethack</h1>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="cart.html">Mon panier</a>
+        <a href="bookings.html">Mes réservations</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="search-section">
+      <h2>Rechercher un trajet</h2>
+      <form id="search-form" class="search-form">
+        <label for="departure">Départ :</label>
+        <input type="text" id="departure" name="departure" placeholder="Ville de départ" />
+
+        <label for="arrival">Arrivée :</label>
+        <input type="text" id="arrival" name="arrival" placeholder="Ville d'arrivée" />
+
+        <label for="date">Date :</label>
+        <input type="date" id="date" name="date" />
+
+        <button type="submit" class="btn-search">Rechercher</button>
+      </form>
+    </section>
+
+    <section class="results-section">
+      <h2>Résultats</h2>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

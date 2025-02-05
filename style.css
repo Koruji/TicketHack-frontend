@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #283593; 
+    padding: 1rem 2rem;
+  }
+  
+  .nav-logo h1 {
+    color: #ffffff;
+  }
+  
+  .nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: opacity 0.3s;
+  }
+  
+  .nav-links a:hover {
+    opacity: 0.7;
+  }
+  
+  .nav-links .active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+  
+  h2 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .search-section {
+    margin-bottom: 2rem;
+  }
+  
+  .search-form label {
+    margin-right: 0.5rem;
+  }
+  
+  .search-form input {
+    margin-right: 1rem;
+    padding: 0.3rem 0.5rem;
+  }
+  
+  .btn-search {
+    padding: 0.5rem 1rem;
+    background-color: #5c6bc0; 
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-search:hover {
+    background-color: #3f51b5;
+  }
+  
+  .results-section {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+  }
+  
+  .trajet-result {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-add-cart {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #d32f2f; 
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-add-cart:hover {
+    background-color: #c62828;
+  }
+  
+  .cart-section {
+    margin-bottom: 2rem;
+  }
+  
+  .cart-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .btn-remove {
+    padding: 0.3rem 0.7rem;
+    background-color: #757575;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-remove:hover {
+    background-color: #616161;
+  }
+  
+  .cart-total {
+    text-align: right;
+    font-size: 1.2rem;
+  }
+  
+  .btn-pay {
+    margin-top: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    background-color: #388e3c; 
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-pay:hover {
+    background-color: #2e7d32;
+  }
+  
+  .bookings-section {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+  }
+  
+  .booking-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
