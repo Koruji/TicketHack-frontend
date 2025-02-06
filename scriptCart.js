@@ -38,8 +38,21 @@ async function getAllTripInCart() {
             deleteButton.forEach(button => {
                 button.addEventListener('click', async () => {
                     const tripId = button.id;
-
-                    //a implémenter
+                    
+                    try {
+                        const res = await fetch(`${BACKEND_URL}cart/${tripId}`, {
+                          method: 'POST',
+                        });
+                        const data = await res.json();
+          
+                        if (data.result) {
+                          window.location.reload();
+                        } else {
+                          alert(data.message || "Problème lors de la suppression de l'élément");
+                        }
+                      } catch (err) {
+                        console.error(err);
+                      }
                 });
             });
         }
@@ -47,18 +60,18 @@ async function getAllTripInCart() {
     } catch(error) {
       console.error("Erreur lors de la recherche :", error);
     }
-  }
+}
 
-  async function getTotalPrice(responseCart) {
+async function getTotalPrice(responseCart) {
     var price = 0;
     for(const cartTrip of responseCart) {
         price += cartTrip.price;
         console.log(price);
     }
     totalPrice.innerText = `Prix total : ${price} €`;
-  }
+}
 
-  async function purchaseAllTrip() {
+async function purchaseAllTrip() {
     try {
         const cartTrip = await fetch(`${BACKEND_URL}cart`);
 
@@ -79,12 +92,12 @@ async function getAllTripInCart() {
     } catch(error) {
         console.error("Erreur lors de la recherche :", error);
     }
-  }
+}
 
-  getAllTripInCart();
+getAllTripInCart();
 
-  purchaseButton.addEventListener("click", async () => {
+purchaseButton.addEventListener("click", async () => {
     await purchaseAllTrip();
     console.log("je clique");
     window.location.reload();
-  });
+});
