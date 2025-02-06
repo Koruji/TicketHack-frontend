@@ -10,22 +10,22 @@ async function getTripByParams(departure, arrival, date) {
 
     if(trips.result) {
       for(const trip of trips.trips) {
-      //   const date = trip.date;
-      //   const formattedDate = moment(inputDate).format("DD-MM-YYYY");
-      //   const formattedTime = moment(inputDate).format("HH:mm");
+        const date = trip.date;
+        const formattedDate = moment(date).format("DD-MM-YYYY");
+        const formattedTime = moment(date).format("HH:mm");
+
         resultsSection.innerHTML += `
           <div class="trajet-result">
             <p>Départ : <span class="departure-city">${trip.departure}</span></p>
             <p>Arrivée : <span class="arrival-city">${trip.arrival}</span></p>
-            <p>Date : <span class="date">${trip.date}</span></p>
-            <p>Prix : <span class="price">${trip.price} € </span></p>
-            <button class="btn-add-cart" id="${trip._id}">Ajouter au panier</button>
+            <p>Date : <span class="date">${formattedDate}</span></p>
+            <p>Heure de départ : <span class="price">${formattedTime}</span></p>
+            <button class="book btn btn-danger" id="${trip._id}">Ajouter au panier</button>
           </div>
         `;
       }
     } else {
-      //TODO: a retester ca fonctionne pas
-      resultsSection.innerHTML = `<img class="d-flex justify-content-center" src="/images/notfound.png">`;
+      resultsSection.innerHTML = `<img class="d-flex justify-content-center w-25" src="./images/notfound.png">`;
     }
   } catch(error) {
     console.error("Erreur lors de la recherche :", error);
@@ -33,18 +33,18 @@ async function getTripByParams(departure, arrival, date) {
 }
 
 searchForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+  e.preventDefault();
   
-    const departure = document.querySelector("#departure").value.trim();
-    const arrival = document.querySelector("#arrival").value.trim();
-    const date = document.querySelector("#date").value; 
-  
-    if (!departure || !arrival || !date) {
-      alert("Merci de remplir tous les champs (Départ, Arrivée, Date).");
-      return;
-    }
+  const departure = document.querySelector("#departure").value.trim();
+  const arrival = document.querySelector("#arrival").value.trim();
+  const date = document.querySelector("#date").value; 
 
-    getTripByParams(departure, arrival, date);
+  if (!departure || !arrival || !date) {
+    alert("Merci de remplir tous les champs (Départ, Arrivée, Date).");
+    return;
+  }
+
+  getTripByParams(departure, arrival, date);
 });
   
   
