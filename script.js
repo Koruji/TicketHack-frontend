@@ -46,5 +46,7 @@ searchForm.addEventListener("submit", function (e) {
 
   getTripByParams(departure, arrival, date);
 });
+
+
   
   
