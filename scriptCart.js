@@ -3,6 +3,7 @@ const listCart = document.getElementById("listCart");
 const messageCart = document.getElementById("messageCart");
 const ulListCart = document.getElementById("ulListCart");
 const totalPrice = document.getElementById("totalPrice");
+const purchaseButton = document.getElementById("purchase");
 
 async function getAllTripInCart() {
     try {
@@ -29,7 +30,18 @@ async function getAllTripInCart() {
                 <button class="btn btn-danger supprCart" id="${cartTrip._id}"> X </button>
               </div>
             </li>
-          `;       
+          `;  
+          
+          //logique de suppression de voyage du panier
+            const deleteButton = document.querySelectorAll('.supprCart');
+
+            deleteButton.forEach(button => {
+                button.addEventListener('click', async () => {
+                    const tripId = button.id;
+
+                    //a implémenter
+                });
+            });
         }
       }
     } catch(error) {
@@ -46,4 +58,33 @@ async function getAllTripInCart() {
     totalPrice.innerText = `Prix total : ${price} €`;
   }
 
+  async function purchaseAllTrip() {
+    try {
+        const cartTrip = await fetch(`${BACKEND_URL}cart`);
+
+        const response = await fetch(`${BACKEND_URL}purchase`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            }, 
+            body: JSON.stringify({cartTrip})
+        });
+
+        const purchase = await response.json();
+
+        if(purchase.result) {
+            console.log("Achat effectué");
+        }
+
+    } catch(error) {
+        console.error("Erreur lors de la recherche :", error);
+    }
+  }
+
   getAllTripInCart();
+
+  purchaseButton.addEventListener("click", async () => {
+    await purchaseAllTrip();
+    console.log("je clique");
+    window.location.reload();
+  });
