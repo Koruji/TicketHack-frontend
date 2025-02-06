@@ -15,11 +15,11 @@ async function getTripByParams(departure, arrival, date) {
         const formattedTime = moment(date).format("HH:mm");
 
         resultsSection.innerHTML += `
-          <div class="trajet-result">
-            <p>Départ : <span class="departure-city">${trip.departure}</span></p>
-            <p>Arrivée : <span class="arrival-city">${trip.arrival}</span></p>
-            <p>Date : <span class="date">${formattedDate}</span></p>
-            <p>Heure de départ : <span class="price">${formattedTime}</span></p>
+          <div class="d-flex justify-content-between trajet-result shadow-sm">
+            <p><span class="fw-bold">Départ</span> : ${trip.departure}</p>
+            <p><span class="fw-bold">Arrivée</span> : ${trip.arrival}</p>
+            <p><span class="fw-bold">Date</span> : ${formattedDate}</p>
+            <p><span class="fw-bold">Heure de départ</span> : ${formattedTime}</p>
             <button class="book btn btn-danger" id="${trip._id}">Ajouter au panier</button>
           </div>
         `;
@@ -36,7 +36,7 @@ async function getTripByParams(departure, arrival, date) {
               const data = await res.json();
 
               if (data.result) {
-                window.location.reload();
+                getTripByParams(departure, arrival, date);
               } else {
                 alert(data.message || 'Problème lors de l’ajout au panier');
               }
@@ -49,7 +49,10 @@ async function getTripByParams(departure, arrival, date) {
     }
 
     } else {
-      resultsSection.innerHTML = `<img class="d-flex justify-content-center w-25" src="./images/notfound.png">`;
+      resultsSection.innerHTML = `
+        <img class="d-flex justify-content-center w-25" src="./images/notfound.png"> 
+        <p class="text-center fw-bold mt-4">Aucun trajet ne correspond à votre recherche.</p>
+      `;
     }
   } catch(error) {
     console.error("Erreur lors de la recherche :", error);

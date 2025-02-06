@@ -13,9 +13,9 @@
   <header>
     <nav class="navbar">
       <div class="nav-logo m-3">
-        <h1>Tickethack</h1>
+        <h1 class="fw-bold">Tickethack</h1>
       </div>
-      <div class="nav-links m-3">
+      <div class="nav-links m-3 fw-bold">
         <a href="index.html">Accueil</a>
         <a href="cart.html">Mon panier</a>
         <a href="bookings.html">Mes réservations</a>
@@ -25,23 +25,25 @@
 
   <main class="container">
     <section class="search-section">
-      <h2>Rechercher un trajet</h2>
-      <form id="search-form" class="search-form">
-        <label for="departure">Départ :</label>
-        <input type="text" id="departure" name="departure" placeholder="Ville de départ" />
-
-        <label for="arrival">Arrivée :</label>
-        <input type="text" id="arrival" name="arrival" placeholder="Ville d'arrivée" />
-
-        <label for="date">Date :</label>
-        <input type="date" id="date" name="date" />
-
-        <button type="submit" class="btn btn-secondary">Rechercher</button>
-      </form>
+      <h2 class="pb-4">Rechercher un trajet</h2>
+      <div class="d-flex column justify-content-between">
+        <form id="search-form" class="search-form">
+          <label for="departure">Départ :</label>
+          <input type="text" id="departure" name="departure" placeholder="Ville de départ" />
+  
+          <label for="arrival">Arrivée :</label>
+          <input type="text" id="arrival" name="arrival" placeholder="Ville d'arrivée" />
+  
+          <label for="date">Date :</label>
+          <input type="date" id="date" name="date" />
+  
+          <button type="submit" class="btn btn-secondary">Rechercher</button>
+        </form>
+        <img src="./images/train.png" class="train">
+      </div>
     </section>
 
     <div class="d-flex row justify-content-center results-section">
-      <h2 class="text-center">Résultats</h2>
     </div>
   </main>
 
