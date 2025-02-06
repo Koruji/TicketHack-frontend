@@ -1,4 +1,4 @@
-const BACKEND_URL = 'ticket-hack-backend-three.vercel.app/';
+const BACKEND_URL = 'https://ticket-hack-backend-three.vercel.app/';
 const listCart = document.getElementById("listCart");
 const messageCart = document.getElementById("messageCart");
 const ulListCart = document.getElementById("ulListCart");
