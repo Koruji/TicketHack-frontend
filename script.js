@@ -32,6 +32,31 @@ async function getTripByParams(departure, arrival, date) {
   }
 }
 
+function bindBookingButtons() {
+  const bookButtons = document.querySelectorAll('.book');
+
+  bookButtons.forEach(button => {
+    button.addEventListener('click', async (e) => {
+      const tripId = e.target.dataset.id;
+      try {
+        const res = await fetch(`${BACKEND_URL}book/${tripId}`, {
+          method: 'POST',
+        });
+        const data = await res.json();
+
+        if (data.result) {
+          window.location.reload();
+        } else {
+          alert(data.message || 'Problème lors de l’ajout au panier');
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Une erreur est survenue lors de l’ajout au panier.");
+      }
+    });
+  });
+}
+
 searchForm.addEventListener("submit", function (e) {
   e.preventDefault();
   
