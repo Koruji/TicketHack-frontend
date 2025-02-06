@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://localhost:3000/';
+const BACKEND_URL = 'ticket-hack-backend-three.vercel.app/';
 const resultsSection = document.querySelector('.results-section');
 const searchForm = document.querySelector("#search-form");
 
