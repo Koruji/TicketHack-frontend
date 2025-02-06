@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://localhost:3000/';
+const BACKEND_URL = 'ticket-hack-backend-three.vercel.app/';
 const listPurchase = document.getElementById("listPurchase");
 const messagePurchase = document.getElementById("messagePurchase");
 const ulListPurchase = document.getElementById("ulListPurchase");
